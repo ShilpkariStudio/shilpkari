@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shilpkari - eCommerce Website</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/shilpkari.png" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style-prefix.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <div class="overlay" data-overlay></div>
+
+  <!--
+    - MODAL
+  -->
+
+  <div class="modal" data-modal>
+
+    <div class="modal-close-overlay"  data-modal-overlay></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter-img" style="display: none;">
+        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+      </div>
+
+      <div class="newsletter" style="display: none;">
+
+        <form action="#">
+
+          <div class="newsletter-header">
+
+            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+
+            <p class="newsletter-desc">
+              Subscribe the <b>Shilpkari</b> to get latest products and discount update.
+            </p>
+
+          </div>
+
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
+
+          <button type="submit" class="btn-newsletter">Subscribe</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ✅ Toast Notification -->
+  <div class="notification-toast" data-toast>
+    <button class="toast-close-btn" data-toast-close>&times;</button>
+
+    <div class="toast-banner">
+      <img src="./assets/images/file.jpg" alt="Service" width="80" height="70">
+    </div>
+
+    <div class="toast-detail">
+      <p class="toast-message">Someone just bought</p>
+      <p class="toast-title">Logo Design</p>
+      <p class="toast-meta"><time datetime="PT2M">2 Minutes</time> ago</p>
+    </div>
+  </div>
+
+  <!-- ✅ Script -->
+  <script>
+ const names = [
+  // Existing
+  "Riya", "Amit", "Neha", "Rohan", "Sana", "Kabir",
+  "Pooja", "Aryan", "Ishita", "Ankit", "Megha", "Zaid",
+  "Aditya", "Sneha", "Rahul", "Priya", "Tanya", "Manav",
+  "Isha", "Kunal", "Divya", "Aarav", "Kritika", "Lakshya",
+  "Simran", "Nikhil", "Nidhi", "Vivaan", "Khushi", "Rehan",
+  "Aanya", "Yash", "Tushar", "Avni", "Sarthak", "Ananya",
+  "Vedant", "Tanvi", "Arjun", "Bhavya", "Harsh", "Diya",
+  "Rachit", "Muskan", "Siddharth", "Jiya", "Viraj", "Palak",
+  "Parth", "Ritika", "Om", "Shruti", "Dhruv", "Aashi",
+  "Dev", "Navya", "Harshit", "Arohi", "Ayush", "Kavya"
+];
+
+
+    const items = [
+      { name: "Logo Design", img: "./assets/images/file.jpg" },
+      { name: "Visiting Card Design", img: "./assets/images/file.jpg" },
+      { name: "Resume / Portfolio Design", img: "./assets/images/file.jpg" },
+      { name: "Poster / Certificate / Brochure Design", img: "./assets/images/file.jpg" },
+      { name: "Digital Name Meaning Frame", img: "./assets/images/file.jpg" },
+      { name: "QR Code Menu & Digital Visiting Card", img: "./assets/images/file.jpg" },
+
+      { name: "Event Photography", img: "./assets/images/file.jpg" },
+      { name: "Product Photography", img: "./assets/images/file.jpg" },
+      { name: "Photo Editing", img: "./assets/images/file.jpg" },
+      { name: "Reels & Video Editing", img: "./assets/images/file.jpg" },
+
+      { name: "Name-based Gift Items", img: "./assets/images/file.jpg" },
+      { name: "Festival Hampers", img: "./assets/images/file.jpg" },
+      { name: "Voice Message Digital Gift", img: "./assets/images/file.jpg" },
+      { name: "Combo Gift Pack", img: "./assets/images/file.jpg" },
+
+      { name: "Digital Invitation", img: "./assets/images/file.jpg" },
+      { name: "Printed Invitation", img: "./assets/images/file.jpg" },
+      { name: "Event App (Gallery + Countdown)", img: "./assets/images/file.jpg" },
+      { name: "Greeting Video", img: "./assets/images/file.jpg" },
+
+      { name: "Portfolio Website", img: "./assets/images/file.jpg" },
+      { name: "Business Website", img: "./assets/images/file.jpg" },
+      { name: "Custom Mobile App", img: "./assets/images/file.jpg" },
+      { name: "Personal Use App", img: "./assets/images/file.jpg" },
+
+      { name: "Social Media Page Setup", img: "./assets/images/file.jpg" },
+      { name: "Instagram Handling", img: "./assets/images/file.jpg" },
+      { name: "WhatsApp Business Setup", img: "./assets/images/file.jpg" },
+      { name: "Custom Content Creation", img: "./assets/images/file.jpg" },
+      { name: "Canva Templates (Editable Packs)", img: "./assets/images/file.jpg" },
+
+      { name: "Template Pack (Invitation, Poster)", img: "./assets/images/file.jpg" },
+      { name: "Online Workshop (Canva, Editing)", img: "./assets/images/file.jpg" },
+      { name: "YouTube Tutorials", img: "./assets/images/file.jpg" }
+    ];
+
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function updateToastContent() {
+      const name = names[getRandom(0, names.length - 1)];
+      const item = items[getRandom(0, items.length - 1)];
+      const minutesAgo = getRandom(1, 10);
+
+      const toast = document.querySelector("[data-toast]");
+      const closeBtn = document.querySelector("[data-toast-close]");
+      const imgEl = toast.querySelector(".toast-banner img");
+      const msgEl = toast.querySelector(".toast-message");
+      const titleEl = toast.querySelector(".toast-title");
+      const timeEl = toast.querySelector(".toast-meta time");
+
+      msgEl.textContent = `${name} just bought`;
+      titleEl.textContent = item.name;
+      timeEl.textContent = `${minutesAgo} Minutes ago`;
+      timeEl.setAttribute("datetime", `PT${minutesAgo}M`);
+      imgEl.src = item.img;
+      imgEl.alt = item.name;
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 6000);
+
+      closeBtn.onclick = () => toast.classList.remove("show");
+    }
+
+    setTimeout(updateToastContent, 3000);
+    setInterval(updateToastContent, 20000);
+  </script>
+
+
+
+  <!--
+    - HEADER
+  -->
+
+  <header>
+
+   
+    <div class="header-main">
+
+      <div class="container">
+
+        <a href="#" class="header-logo">
+          <img src="./assets/images/shilpkari.png" alt="Shilpkari's logo" width="120" height="36">
+        </a>
+
+        <div class="header-search-container">
+
+          <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
+
+          <button class="search-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="header-user-actions">
+
+          <button class="action-btn">
+            <ion-icon name="person-outline"></ion-icon>
+          </button>
+
+          <button class="action-btn">
+            <ion-icon name="heart-outline"></ion-icon>
+            <span class="count">0</span>
+          </button>
+
+          <button class="action-btn">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="count">0</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+   <!-- ✅ Shilpkari Desktop Navigation Menu with Updated Categories -->
+<nav class="desktop-navigation-menu">
+  <div class="container">
+    <ul class="desktop-menu-category-list">
+
+      <li class="menu-category">
+        <a href="#" class="menu-title">Home</a>
+      </li>
+
+      <li class="menu-category">
+        <a href="#" class="menu-title">Services</a>
+
+        <div class="dropdown-panel">
+
+          <!-- 🎨 Creative Designing -->
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Creative Designing</a></li>
+            <li class="panel-list-item"><a href="#">Logo Design</a></li>
+            <li class="panel-list-item"><a href="#">Visiting Card</a></li>
+            <li class="panel-list-item"><a href="#">Resume / Portfolio</a></li>
+            <li class="panel-list-item"><a href="#">Posters & Brochures</a></li>
+            <li class="panel-list-item"><a href="#">Name Meaning Frames</a></li>
+            <li class="panel-list-item"><a href="#">QR Code Menus</a></li>
+          </ul>
+
+          <!-- 📸 Photography & Editing -->
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Photography & Editing</a></li>
+            <li class="panel-list-item"><a href="#">Event Photography</a></li>
+            <li class="panel-list-item"><a href="#">Product Photography</a></li>
+            <li class="panel-list-item"><a href="#">Photo Editing</a></li>
+            <li class="panel-list-item"><a href="#">Video Editing</a></li>
+          </ul>
+
+          <!-- 🎁 Customized Gifts -->
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Customized Gifts</a></li>
+            <li class="panel-list-item"><a href="#">Name-based Gifts</a></li>
+            <li class="panel-list-item"><a href="#">Festival Hampers</a></li>
+            <li class="panel-list-item"><a href="#">Voice Message Gifts</a></li>
+            <li class="panel-list-item"><a href="#">Combo Gift Packs</a></li>
+          </ul>
+
+          <!-- 💌 Invitation & Greeting Services -->
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Invitations & Greetings</a></li>
+            <li class="panel-list-item"><a href="#">Digital Invitations</a></li>
+            <li class="panel-list-item"><a href="#">Printed Cards</a></li>
+            <li class="panel-list-item"><a href="#">Event Apps</a></li>
+            <li class="panel-list-item"><a href="#">Greeting Videos</a></li>
+          </ul>
+
+          <!-- 🖥 Web & App Development -->
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Web Development</a></li>
+            <li class="panel-list-item"><a href="#">Portfolio Websites</a></li>
+            <li class="panel-list-item"><a href="#">Business Websites</a></li>
+          </ul>
+
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">App Development</a></li>
+            <li class="panel-list-item"><a href="#">Mobile Apps (Low-code)</a></li>
+            <li class="panel-list-item"><a href="#">Reminder Apps</a></li>
+          </ul>
+
+          <!-- 📱 Social Media & Business Solutions -->
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Social Media & Business</a></li>
+            <li class="panel-list-item"><a href="#">Page Setup</a></li>
+            <li class="panel-list-item"><a href="#">Instagram Handling</a></li>
+            <li class="panel-list-item"><a href="#">WhatsApp Biz Setup</a></li>
+            <li class="panel-list-item"><a href="#">Content Creation</a></li>
+            <li class="panel-list-item"><a href="#">Canva Templates</a></li>
+          </ul>
+
+          <!-- 🎓 Digital Products & Learning -->
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Digital Products</a></li>
+            <li class="panel-list-item"><a href="#">Sell Templates</a></li>
+          </ul>
+
+          <ul class="dropdown-panel-list">
+            <li class="menu-title"><a href="#">Learning & Tutorials</a></li>
+            <li class="panel-list-item"><a href="#">Online Workshops</a></li>
+            <li class="panel-list-item"><a href="#">YouTube Tutorials</a></li>
+          </ul>
+
+        </div>
+      </li>
+
+      <li class="menu-category">
+        <a href="#" class="menu-title">Blog</a>
+      </li>
+
+      <li class="menu-category">
+        <a href="#" class="menu-title">Hot Offers</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+    <div class="mobile-bottom-navigation">
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="heart-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="grid-outline"></ion-icon>
+      </button>
+
+    </div>
+<nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+
+  <div class="menu-top">
+    <h2 class="menu-title">Shilpkari Services</h2>
+
+    <button class="menu-close-btn" data-mobile-menu-close-btn>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+  </div>
+
+  <ul class="mobile-menu-category-list">
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">Creative Designing</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Logo Design</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Visiting Card</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Resume/Portfolio</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Brochures & Posters</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Name Meaning Frames</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">QR Code Menus</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">Photography & Editing</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Event Photography</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Product Photography</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Photo Editing</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Video Editing</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">Customized Gifts</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Name-based Gifts</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Festival Hampers</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Voice Gifts</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Combo Packs</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">Invitations & Greetings</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Digital Invites</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Printed Cards</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Event Apps</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Greeting Videos</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">Web Development</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Portfolio Website</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Business Website</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">App Development</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Mobile App (Low-Code)</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Reminder Apps</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">Social Media & Business</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Page Setup</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Instagram Handling</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">WhatsApp Biz Setup</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Content Creation</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Canva Templates</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-category">
+      <button class="accordion-menu" data-accordion-btn>
+        <p class="menu-title">Digital Products</p>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="submenu-category-list" data-accordion>
+        <li class="submenu-category"><a href="#" class="submenu-title">Sell Templates</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">Online Workshops</a></li>
+        <li class="submenu-category"><a href="#" class="submenu-title">YouTube Tutorials</a></li>
+      </ul>
+    </li>
+
+  </ul>
+
+  <!-- Keep your menu-bottom (optional) or remove if not needed -->
+  <div class="menu-bottom">
+    <!-- ... language, currency, and social links ... -->
+  </div>
+
+</nav>
+
+
+  </header>
+
+
+
+
+
+  <!--
+    - MAIN
+  -->
+
+  <main>
+
+    <!--
+      - BANNER
+    -->
+
+<div class="banner">
+
+  <div class="container">
+
+    <div class="slider-container has-scrollbar">
+
+      <!-- Banner 1: Creative Designs -->
+      <div class="slider-item">
+        <img src="./assets/images/banner-1.jpg" alt="Creative Designing by Shilpkari" class="banner-img">
+        <div class="banner-content">
+          <p class="banner-subtitle">Stand Out Creatively</p>
+          <h2 class="banner-title">Professional Graphic Designs</h2>
+          <p class="banner-text">
+            Starting from just <b>₹99</b>
+          </p>
+          <a href="#" class="banner-btn">Explore Designs</a>
+        </div>
+      </div>
+
+      <!-- Banner 2: Customized Gifts -->
+      <div class="slider-item">
+        <img src="./assets/images/banner-2.jpg" alt="Customized gifts by Shilpkari" class="banner-img">
+        <div class="banner-content">
+          <p class="banner-subtitle">Perfect for Every Occasion</p>
+          <h2 class="banner-title">Customized Gifting Solutions</h2>
+          <p class="banner-text">
+            Hampers from just <b>₹149</b>
+          </p>
+          <a href="#" class="banner-btn">Gift Now</a>
+        </div>
+      </div>
+
+      <!-- Banner 3: Web & App Services -->
+      <div class="slider-item">
+        <img src="./assets/images/banner-3.jpg" alt="Digital solutions by Shilpkari" class="banner-img">
+        <div class="banner-content">
+          <p class="banner-subtitle">Grow Your Presence</p>
+          <h2 class="banner-title">Websites & Apps Tailored for You</h2>
+          <p class="banner-text">
+            Launch your idea at just <b>₹499</b>
+          </p>
+          <a href="#" class="banner-btn">Get Started</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+    <!--
+      - CATEGORY
+    -->
+
+   <div class="container">
+  <div class="category-item-container has-scrollbar">
+
+    <!-- Category 1 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="color-palette-outline" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">Creative Designing</h3>
+          <p class="category-item-amount">(53)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+    <!-- Category 2 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="camera-outline" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">Photography</h3>
+          <p class="category-item-amount">(40)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+    <!-- Category 3 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="videocam-outline" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">Video Editing</h3>
+          <p class="category-item-amount">(29)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+    <!-- Category 4 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="gift-outline" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">Customized Gifts</h3>
+          <p class="category-item-amount">(35)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+    <!-- Category 5 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="mail-open-outline" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">Digital Invitations</h3>
+          <p class="category-item-amount">(22)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+    <!-- Category 6 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="globe-outline" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">Web Development</h3>
+          <p class="category-item-amount">(18)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+    <!-- Category 7 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="phone-portrait-outline" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">App Development</h3>
+          <p class="category-item-amount">(11)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+    <!-- Category 8 -->
+    <div class="category-item">
+
+      <div class="category-img-box" style="text-align: center;">
+        <ion-icon name="logo-instagram" style="font-size: 30px; color: #555;"></ion-icon>
+      </div>
+
+      <div class="category-content-box">
+        <div class="category-content-flex">
+          <h3 class="category-item-title">Social Media</h3>
+          <p class="category-item-amount">(21)</p>
+        </div>
+        <a href="#" class="category-btn">Show all</a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+    <!--
+      - PRODUCT
+    -->
+
+    <div class="product-container">
+
+      <div class="container">
+
+
+        <!--
+          - SIDEBAR
+        -->
+
+        <div class="sidebar  has-scrollbar" data-mobile-menu>
+<!-- ✅ Shilpkari Sidebar Category with Icons (Updated: Web & App Split + Working Icons) -->
+<div class="sidebar-category">
+  <div class="sidebar-top">
+    <h2 class="sidebar-title">Shilpkari Services</h2>
+    <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+  </div>
+
+  <ul class="sidebar-menu-category-list">
+
+    <!-- 🎨 Creative Designing -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="color-palette-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">Creative Designing</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Logo Design</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Visiting Card</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Resume/Portfolio</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Brochures & Posters</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Name Meaning Frames</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">QR Code Menus</p></a></li>
+      </ul>
+    </li>
+
+    <!-- 📸 Photography & Editing -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="camera-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">Photography & Editing</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Event Photography</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Product Photography</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Photo Editing</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Video Editing</p></a></li>
+      </ul>
+    </li>
+
+    <!-- 🎁 Customized Gifts -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="gift-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">Customized Gifts</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Name-based Gifts</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Festival Hampers</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Voice Gifts</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Combo Packs</p></a></li>
+      </ul>
+    </li>
+
+    <!-- 💌 Invitation & Greetings -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="mail-unread-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">Invitations & Greetings</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Digital Invites</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Printed Cards</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Event Apps</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Greeting Videos</p></a></li>
+      </ul>
+    </li>
+
+    <!-- 🖥️ Web Development -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="desktop-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">Web Development</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Portfolio Website</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Business Website</p></a></li>
+      </ul>
+    </li>
+
+    <!-- 📱 App Development -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="phone-portrait-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">App Development</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Mobile App (Low-Code)</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Reminder Apps</p></a></li>
+      </ul>
+    </li>
+
+    <!-- 📲 Social Media & Business -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="business-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">Social Media & Business</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Page Setup</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Instagram Handling</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">WhatsApp Biz Setup</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Content Creation</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Canva Templates</p></a></li>
+      </ul>
+    </li>
+
+    <!-- 🎓 Digital Products -->
+    <li class="sidebar-menu-category">
+      <button class="sidebar-accordion-menu" data-accordion-btn>
+        <div class="menu-title-flex">
+          <ion-icon name="school-outline" class="menu-title-img" size="small"></ion-icon>
+          <p class="menu-title">Digital Products</p>
+        </div>
+        <div>
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+        </div>
+      </button>
+      <ul class="sidebar-submenu-category-list" data-accordion>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Sell Templates</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">Online Workshops</p></a></li>
+        <li class="sidebar-submenu-category"><a href="#" class="sidebar-submenu-title"><p class="product-name">YouTube Tutorials</p></a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+
+
+
+        <div class="product-showcase">
+
+  <h3 class="showcase-heading">Best Sellers</h3>
+
+  <div class="showcase-wrapper">
+    <div class="showcase-container">
+
+      <!-- Creative Design -->
+      <div class="showcase">
+        <a href="#" class="showcase-img-box" style="font-size: 32px; color: #333; display: flex; align-items: center; justify-content: center; width: 75px; height: 75px;">
+          <ion-icon name="color-palette-outline"></ion-icon>
+        </a>
+        <div class="showcase-content">
+          <a href="#"><h4 class="showcase-title">Creative Designing</h4></a>
+          <div class="showcase-rating">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+          <div class="price-box">
+            <del>₹199</del>
+            <p class="price">₹99</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Editing -->
+      <div class="showcase">
+        <a href="#" class="showcase-img-box" style="font-size: 32px; color: #333; display: flex; align-items: center; justify-content: center; width: 75px; height: 75px;">
+          <ion-icon name="videocam-outline"></ion-icon>
+        </a>
+        <div class="showcase-content">
+          <a href="#"><h4 class="showcase-title">Video Editing</h4></a>
+          <div class="showcase-rating">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half-outline"></ion-icon>
+          </div>
+          <div class="price-box">
+            <del>₹499</del>
+            <p class="price">₹299</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Development -->
+      <div class="showcase">
+        <a href="#" class="showcase-img-box" style="font-size: 32px; color: #333; display: flex; align-items: center; justify-content: center; width: 75px; height: 75px;">
+          <ion-icon name="globe-outline"></ion-icon>
+        </a>
+        <div class="showcase-content">
+          <a href="#"><h4 class="showcase-title">Web Development</h4></a>
+          <div class="showcase-rating">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half-outline"></ion-icon>
+          </div>
+          <div class="price-box">
+            <del>₹999</del>
+            <p class="price">₹499</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customized Gifts -->
+      <div class="showcase">
+        <a href="#" class="showcase-img-box" style="font-size: 32px; color: #333; display: flex; align-items: center; justify-content: center; width: 75px; height: 75px;">
+          <ion-icon name="gift-outline"></ion-icon>
+        </a>
+        <div class="showcase-content">
+          <a href="#"><h4 class="showcase-title">Customized Gifts</h4></a>
+          <div class="showcase-rating">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+          <div class="price-box">
+            <del>₹249</del>
+            <p class="price">₹149</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div>
+
+
+
+        <div class="product-box">
+
+          <!--
+            - PRODUCT MINIMAL
+          -->
+
+     <div class="product-minimal">
+
+  <!-- New Arrivals Section -->
+  <div class="product-showcase">
+    <h2 class="title">New Arrivals</h2>
+    <div class="showcase-wrapper has-scrollbar">
+      <div class="showcase-container">
+
+        <!-- Creative Designing -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="color-palette-outline"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">Creative Designing</h4></a>
+            <a href="#" class="showcase-category">Graphics</a>
+            <div class="price-box">
+              <p class="price">₹499</p>
+              <del>₹699</del>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Editing -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="videocam-outline"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">Video Editing</h4></a>
+            <a href="#" class="showcase-category">Media</a>
+            <div class="price-box">
+              <p class="price">₹999</p>
+              <del>₹1499</del>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="globe-outline"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">Web Development</h4></a>
+            <a href="#" class="showcase-category">Technology</a>
+            <div class="price-box">
+              <p class="price">₹1999</p>
+              <del>₹2499</del>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customized Gifts -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="gift-outline"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">Customized Gifts</h4></a>
+            <a href="#" class="showcase-category">Gifting</a>
+            <div class="price-box">
+              <p class="price">₹299</p>
+              <del>₹499</del>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Trending Section -->
+  <div class="product-showcase">
+    <h2 class="title">Trending</h2>
+    <div class="showcase-wrapper has-scrollbar">
+      <div class="showcase-container">
+
+        <!-- Photography -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="camera-outline"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">Photography</h4></a>
+            <a href="#" class="showcase-category">Media</a>
+            <div class="price-box">
+              <p class="price">₹799</p>
+              <del>₹1099</del>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Development -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="phone-portrait-outline"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">App Development</h4></a>
+            <a href="#" class="showcase-category">Technology</a>
+            <div class="price-box">
+              <p class="price">₹2499</p>
+              <del>₹2999</del>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digital Invitations -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="mail-open-outline"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">Digital Invitations</h4></a>
+            <a href="#" class="showcase-category">Event</a>
+            <div class="price-box">
+              <p class="price">₹199</p>
+              <del>₹349</del>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Setup -->
+        <div class="showcase">
+          <a href="#" class="showcase-img-box" style="font-size: 40px; color: #555; display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <div class="showcase-content">
+            <a href="#"><h4 class="showcase-title">Social Media Setup</h4></a>
+            <a href="#" class="showcase-category">Branding</a>
+            <div class="price-box">
+              <p class="price">₹899</p>
+              <del>₹1299</del>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+          <!--
+            - PRODUCT FEATURED
+          -->
+
+      <div class="product-featured">
+  <h2 class="title">Deal of the Day</h2>
+  <div class="showcase-wrapper has-scrollbar">
+
+    <!-- Creative Designing -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="color-palette-outline"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">Creative Designing</a></h3>
+          <p class="showcase-desc">Unique, customized designs that speak your brand’s language.</p>
+          <div class="price-box">
+            <p class="price">₹499</p>
+            <del>₹799</del>
+          </div>
+          <button class="add-cart-btn">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photography -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="camera-outline"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">Photography</a></h3>
+          <p class="showcase-desc">Capturing memories, moments & milestones beautifully.</p>
+          <div class="price-box">
+            <p class="price">₹999</p>
+            <del>₹1499</del>
+          </div>
+          <button class="add-cart-btn">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Editing -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="videocam-outline"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">Video Editing</a></h3>
+          <p class="showcase-desc">From raw clips to polished stories. Professional & engaging edits.</p>
+          <div class="price-box">
+            <p class="price">₹699</p>
+            <del>₹1099</del>
+          </div>
+          <button class="add-cart-btn">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customized Gifts -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="gift-outline"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">Customized Gifts</a></h3>
+          <p class="showcase-desc">Make someone smile with personalized gifts that matter.</p>
+          <div class="price-box">
+            <p class="price">₹399</p>
+            <del>₹599</del>
+          </div>
+          <button class="add-cart-btn">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital Invitations -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="mail-open-outline"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">Digital Invitations</a></h3>
+          <p class="showcase-desc">Elegant and creative invites for your special occasions.</p>
+          <div class="price-box">
+            <p class="price">₹249</p>
+            <del>₹499</del>
+          </div>
+          <button class="add-cart-btn">Get Invite</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Web Development -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="globe-outline"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">Web Development</a></h3>
+          <p class="showcase-desc">From idea to launch, we build fast, responsive websites.</p>
+          <div class="price-box">
+            <p class="price">₹2999</p>
+            <del>₹4999</del>
+          </div>
+          <button class="add-cart-btn">Start Project</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Development -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="phone-portrait-outline"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">App Development</a></h3>
+          <p class="showcase-desc">Custom apps for Android/iOS that meet your needs.</p>
+          <div class="price-box">
+            <p class="price">₹5999</p>
+            <del>₹8999</del>
+          </div>
+          <button class="add-cart-btn">Get App</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Media Setup -->
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-banner" style="text-align: center; font-size: 40px;">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </div>
+        <div class="showcase-content">
+          <h3 class="showcase-title"><a href="#">Social Media Setup</a></h3>
+          <p class="showcase-desc">We’ll set up & optimize your social profiles professionally.</p>
+          <div class="price-box">
+            <p class="price">₹899</p>
+            <del>₹1299</del>
+          </div>
+          <button class="add-cart-btn">Setup Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+          <!--
+            - PRODUCT GRID
+          -->
+
+         <div class="product-main">
+  <h2 class="title">New Products</h2>
+  <div class="product-grid">
+
+    <!-- Creative Designing -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="color-palette-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Graphics</a>
+        <a href="#"><h3 class="showcase-title">Creative Designing</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹499</p><del>₹699</del>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photography -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="camera-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Photography</a>
+        <a href="#"><h3 class="showcase-title">Photography Shoots</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹999</p><del>₹1299</del>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Editing -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="videocam-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Video Editing</a>
+        <a href="#"><h3 class="showcase-title">Video Editing Service</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹699</p><del>₹999</del>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customized Gifts -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="gift-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Gifting</a>
+        <a href="#"><h3 class="showcase-title">Customized Gifts</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹299</p><del>₹499</del>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital Invitations -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="mail-open-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Invitations</a>
+        <a href="#"><h3 class="showcase-title">Digital Invitations</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹249</p><del>₹399</del>
+        </div>
+      </div>
+    </div>
+
+    <!-- Web Development -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="globe-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Development</a>
+        <a href="#"><h3 class="showcase-title">Web Development</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹1999</p><del>₹2999</del>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Development -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="phone-portrait-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Mobile Apps</a>
+        <a href="#"><h3 class="showcase-title">App Development</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹2999</p><del>₹3999</del>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Media Setup -->
+    <div class="showcase">
+      <div class="showcase-banner" style="text-align:center; font-size:50px; color:#555;">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <a href="#" class="showcase-category">Branding</a>
+        <a href="#"><h3 class="showcase-title">Social Media Setup</h3></a>
+        <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="price-box">
+          <p class="price">₹899</p><del>₹1299</del>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+   <!--
+      - TESTIMONIALS, CTA & SERVICE
+    -->
+
+    <div>
+
+      <div class="container">
+
+        <div class="testimonials-box">
+
+          <!--
+            - TESTIMONIALS
+          -->
+
+          <div class="testimonial">
+
+            <h2 class="title">testimonial</h2>
+
+        <div class="testimonial-card" id="testimonialCard">
+ <img src="" alt="client" class="testimonial-banner" width="80" height="80" id="testimonialImg">
+<p class="testimonial-name" id="testimonialName"></p>
+<p class="testimonial-title" id="testimonialTitle"></p>
+<img src="./assets/images/icons/quotes.svg" alt="quotation" class="quotation-img" width="26">
+<p class="testimonial-desc" id="testimonialDesc"></p>
+
+</div>
+
+
+          </div>
+
+
+
+          <!--
+            - CTA
+          -->
+
+        <div class="cta-container">
+
+  <img src="./assets/images/cta-banner.jpg" alt="Exclusive Offer" class="cta-banner">
+
+  <a href="#" class="cta-content">
+
+    <p class="discount">🔥 Flat 30% OFF</p>
+
+    <h2 class="cta-title">Exclusive Festive Picks</h2>
+
+    <p class="cta-text">Starts at just ₹799</p>
+
+    <button class="cta-btn">Explore Now</button>
+
+  </a>
+
+</div>
+
+
+
+
+          <!--
+            - SERVICE
+          -->
+
+          <div class="service">
+
+            <h2 class="title">Our Services</h2>
+
+        <div class="service-container">
+
+  <a href="#" class="service-item">
+    <div class="service-icon">
+      <ion-icon name="boat-outline"></ion-icon>
+    </div>
+    <div class="service-content">
+      <h3 class="service-title">Free Pan-India Delivery</h3>
+      <p class="service-desc">On Orders Above ₹999</p>
+    </div>
+  </a>
+
+  <a href="#" class="service-item">
+    <div class="service-icon">
+      <ion-icon name="rocket-outline"></ion-icon>
+    </div>
+    <div class="service-content">
+      <h3 class="service-title">Express Dispatch</h3>
+      <p class="service-desc">Shipped Within 24 Hours</p>
+    </div>
+  </a>
+
+  <a href="#" class="service-item">
+    <div class="service-icon">
+      <ion-icon name="call-outline"></ion-icon>
+    </div>
+    <div class="service-content">
+      <h3 class="service-title">Dedicated Support</h3>
+      <p class="service-desc">Available 8AM to 11PM</p>
+    </div>
+  </a>
+
+  <a href="#" class="service-item">
+    <div class="service-icon">
+      <ion-icon name="arrow-undo-outline"></ion-icon>
+    </div>
+    <div class="service-content">
+      <h3 class="service-title">Easy Returns</h3>
+      <p class="service-desc">No Questions Asked</p>
+    </div>
+  </a>
+
+  <a href="#" class="service-item">
+    <div class="service-icon">
+      <ion-icon name="ticket-outline"></ion-icon>
+    </div>
+    <div class="service-content">
+      <h3 class="service-title">Instant Refunds</h3>
+      <p class="service-desc">Get 30% Back Instantly</p>
+    </div>
+  </a>
+
+</div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+<script>
+  const testimonials = [
+    {
+      name: "Harshit Joshi",
+      title: "Founder, Shilpkari",
+      review: "Amazing quality and design. Perfect team to work with. Highly recommended!"
+    },
+    {
+      name: "Aanya Mehta",
+      title: "Digital Artist",
+      review: "Loved the custom gifts I received. Creative and thoughtful work!"
+    },
+    {
+      name: "Ravi Sharma",
+      title: "Wedding Planner",
+      review: "Video edits and invites were superb. On time delivery, professional approach!"
+    },
+    {
+      name: "Isha Kapoor",
+      title: "Event Host",
+      review: "Social media setup was on point. My Insta now looks so aesthetic!"
+    },
+    {
+      name: "Mohit Rawat",
+      title: "Photographer",
+      review: "Their graphics & reels increased my client engagement. Truly thankful!"
+    }
+  ];
+
+  // Profile icon (SVG in base64 format)
+  const profileIcon = "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjY2NjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiLz48cGF0aCBkPSJNMjAsMjJIMTRWMTljMC0xLjEtLjktMi0yLTJIN2MtMS4xLDAtMiwuOS0yLDJWMjRIMjAiLz48L3N2Zz4=";
+
+  function showRandomTestimonial() {
+    const t = testimonials[Math.floor(Math.random() * testimonials.length)];
+
+    document.getElementById("testimonialImg").src = profileIcon;
+    document.getElementById("testimonialName").innerText = t.name;
+    document.getElementById("testimonialTitle").innerText = t.title;
+    document.getElementById("testimonialDesc").innerText = t.review;
+  }
+
+  // Initial load
+  showRandomTestimonial();
+
+  // Update every 3 seconds
+  setInterval(showRandomTestimonial, 3000);
+</script>
+
+
+ 
+
+
+
+    <!--
+      - BLOG
+    -->
+<div class="blog">
+
+  <div class="container">
+
+    <div class="blog-container has-scrollbar">
+
+      <!-- Blog 1 -->
+      <div class="blog-card">
+        <a href="#">
+          <img src="./assets/images/blog-1.jpg" alt="Top 5 Trending Styles You Must Try This Festive Season" width="300" class="blog-banner">
+        </a>
+        <div class="blog-content">
+          <a href="#" class="blog-category">Lifestyle</a>
+          <a href="#">
+            <h3 class="blog-title">Top 5 Trending Styles You Must Try This Festive Season!</h3>
+          </a>
+          <p class="blog-meta">
+            By <cite>Team Shilpkari</cite> / <time datetime="2025-07-13">Jul 13, 2025</time>
+          </p>
+        </div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="blog-card">
+        <a href="#">
+          <img src="./assets/images/blog-2.jpg" alt="Make Your Wedding Invitations Stand Out" class="blog-banner" width="300">
+        </a>
+        <div class="blog-content">
+          <a href="#" class="blog-category">Events</a>
+          <h3>
+            <a href="#" class="blog-title">Make Your Wedding Invitations Stand Out: Design Tips That Wow</a>
+          </h3>
+          <p class="blog-meta">
+            By <cite>Isha Kapoor</cite> / <time datetime="2025-06-28">Jun 28, 2025</time>
+          </p>
+        </div>
+      </div>
+
+      <!-- Blog 3 -->
+      <div class="blog-card">
+        <a href="#">
+          <img src="./assets/images/blog-3.jpg" alt="How Custom Gifts Build Stronger Client Relationships" class="blog-banner" width="300">
+        </a>
+        <div class="blog-content">
+          <a href="#" class="blog-category">Gifting</a>
+          <h3>
+            <a href="#" class="blog-title">How Custom Gifts Build Stronger Client Relationships</a>
+          </h3>
+          <p class="blog-meta">
+            By <cite>Ravi Sharma</cite> / <time datetime="2025-07-01">Jul 01, 2025</time>
+          </p>
+        </div>
+      </div>
+
+      <!-- Blog 4 -->
+      <div class="blog-card">
+        <a href="#">
+          <img src="./assets/images/blog-4.jpg" alt="Instagram Branding Tips for Small Businesses" class="blog-banner" width="300">
+        </a>
+        <div class="blog-content">
+          <a href="#" class="blog-category">Marketing</a>
+          <h3>
+            <a href="#" class="blog-title">Instagram Branding Tips for Small Businesses in 2025</a>
+          </h3>
+          <p class="blog-meta">
+            By <cite>Aanya Mehta</cite> / <time datetime="2025-07-10">Jul 10, 2025</time>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  </main>
+
+
+
+
+
+  <!--
+    - FOOTER
+  -->
+
+  <footer>
+
+    <footer>
+
+ <div class="footer-category">
+
+  <div class="container">
+
+    <h2 class="footer-category-title">Shilpkari Creative Directory</h2>
+
+    <div class="footer-category-box">
+      <h3 class="category-box-title">Personalized Gifts :</h3>
+      <a href="#" class="footer-category-link">Name Frames</a>
+      <a href="#" class="footer-category-link">Customized Mugs</a>
+      <a href="#" class="footer-category-link">Mini Albums</a>
+      <a href="#" class="footer-category-link">Anniversary Hampers</a>
+      <a href="#" class="footer-category-link">Birthday Kits</a>
+      <a href="#" class="footer-category-link">Love Themed Gifts</a>
+      <a href="#" class="footer-category-link">Couple Frames</a>
+    </div>
+
+    <div class="footer-category-box">
+      <h3 class="category-box-title">Creative Services :</h3>
+      <a href="#" class="footer-category-link">Poster Design</a>
+      <a href="#" class="footer-category-link">Video Invitations</a>
+      <a href="#" class="footer-category-link">Social Media Setup</a>
+      <a href="#" class="footer-category-link">Highlight Covers</a>
+      <a href="#" class="footer-category-link">Logo Designing</a>
+      <a href="#" class="footer-category-link">Event Promotions</a>
+      <a href="#" class="footer-category-link">Brand Identity</a>
+    </div>
+
+    <div class="footer-category-box">
+      <h3 class="category-box-title">Handmade Collection :</h3>
+      <a href="#" class="footer-category-link">Resin Art Frames</a>
+      <a href="#" class="footer-category-link">Mandala Bookmarks</a>
+      <a href="#" class="footer-category-link">Name Plates</a>
+      <a href="#" class="footer-category-link">Customized Lamps</a>
+      <a href="#" class="footer-category-link">Home Décor Crafts</a>
+      <a href="#" class="footer-category-link">Wooden Boards</a>
+      <a href="#" class="footer-category-link">Theme Frames</a>
+    </div>
+
+    <div class="footer-category-box">
+      <h3 class="category-box-title">Shilpkari Specials :</h3>
+      <a href="#" class="footer-category-link">Festive Hampers</a>
+      <a href="#" class="footer-category-link">Wedding Stationery</a>
+      <a href="#" class="footer-category-link">Thank You Cards</a>
+      <a href="#" class="footer-category-link">Pop-up Frames</a>
+      <a href="#" class="footer-category-link">Creative Surprises</a>
+      <a href="#" class="footer-category-link">Custom Reels</a>
+      <a href="#" class="footer-category-link">Memory Boxes</a>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer-nav">
+
+  <div class="container">
+
+    <ul class="footer-nav-list">
+
+      <li class="footer-nav-item">
+        <h2 class="nav-title">Popular Categories</h2>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Customized Gifts</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Handmade Frames</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Digital Posters</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Anniversary Specials</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Birthday Hampers</a>
+      </li>
+
+    </ul>
+
+    <ul class="footer-nav-list">
+
+      <li class="footer-nav-item">
+        <h2 class="nav-title">Our Products</h2>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Mini Scrapbooks</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Customized Mugs</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Pop-up Frames</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Creative Reels</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Surprise Boxes</a>
+      </li>
+
+    </ul>
+
+    <ul class="footer-nav-list">
+
+      <li class="footer-nav-item">
+        <h2 class="nav-title">Company</h2>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">About Shilpkari</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Our Story</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Terms & Conditions</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Privacy Policy</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Secure Payments</a>
+      </li>
+
+    </ul>
+
+    <ul class="footer-nav-list">
+
+      <li class="footer-nav-item">
+        <h2 class="nav-title">Customer Support</h2>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Track Your Order</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Shipping & Delivery</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Return Policy</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">FAQs</a>
+      </li>
+
+      <li class="footer-nav-item">
+        <a href="#" class="footer-nav-link">Contact Us</a>
+      </li>
+
+    </ul>
+
+    <ul class="footer-nav-list">
+
+      <li class="footer-nav-item">
+        <h2 class="nav-title">Contact</h2>
+      </li>
+
+      <li class="footer-nav-item flex">
+        <div class="icon-box">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <address class="content">
+          Shilpkari HQ, Faridabad, Haryana, India
+        </address>
+      </li>
+
+      <li class="footer-nav-item flex">
+        <div class="icon-box">
+          <ion-icon name="call-outline"></ion-icon>
+        </div>
+        <a href="tel:+919015921534" class="footer-nav-link">+91 90159 21534</a>
+      </li>
+
+      <li class="footer-nav-item flex">
+        <div class="icon-box">
+          <ion-icon name="mail-outline"></ion-icon>
+        </div>
+        <a href="mailto:shilpkari.studio@gmail.com" class="footer-nav-link">shilpkariofficial@gmail.com</a>
+      </li>
+
+    </ul>
+
+    <ul class="footer-nav-list">
+
+      <li class="footer-nav-item">
+        <h2 class="nav-title">Follow Us</h2>
+      </li>
+
+      <li>
+        <ul class="social-link">
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <img src="./assets/images/payment.png" alt="payment method" class="payment-img">
+
+        <p class="copyright">
+          Copyright &copy; <a href="#">Shilpkari</a> all rights reserved.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>
